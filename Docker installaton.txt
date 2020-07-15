@@ -1,0 +1,286 @@
+docker playlist : https://www.youtube.com/watch?v=wi-MGFhrad0&list=PLhW3qG5bs-L99pQsZ74f-LC-tOEsBp2rK&index=1
+
+Docker :
+
+docker manual : http://docs.docker.oeynet.com/engine/installation/
+
+docker installation commands on ubuntu:   http://docs.docker.com/engine/install/ubuntu/
+
+$ sudo apt-get update
+
+$ sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+$ sudo apt-key fingerprint 0EBFCD88
+
+$ sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+ $ sudo apt-get update
+ $ sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+$ sudo docker -v
+
+$ sudo docker run hello-world
+
+$ sudo docker images
+
+$ sudo docker ps -a
+
+$ sudo docker run hello-world
+
+
+Containers : are running instances fof Docker images.  a container image is a lightweight , standalone , executable package  of a piece of software that includes everything needed to run it .  code, runtime, system  tools, system lybraries, settings. 
+It uses less resources, booting of containers is very fast , can start , stop kill remove containers easily and quickly , OS resources can be shared within docker,  Containers run on the same machinee sharing the same os kernel . this makes it faster 
+
+what are images : Docker images are templates used to create docker containers . Container is a running instance of image. 
+Where images are stored : Docker hub , locally , remote
+
+Dockers can build images automatically by reading the instructions from a dockerfile. 
+
+A single image can be used to create multiple containers 
+
+Docker Compose : tool for defining and runnig multi-container docker applications
+
+use yaml files to comfigure application services
+
+can start all services with a single command 
+
+
+
+docker volumes: By default all files created inside a container are stored on ta writeble container layer 
+
+the data does not persist when that container is no longer running 
+
+A containers writable layer is tightly coupled to the host  machine where the container is running. you can not easliy move the data somewhere else 
+
+docker has two optons for containers to store files in the host machine so that the files are persisteed even after the containers stops. 
+
+volumes are stored na part of host flesystems which is managed by docker 
+
+Non docker processes should not modify this part of the filesystem 
+
+Binde mount may be stored anywhere on the host system 
+
+Non docker processes on the docker host or an docker container can modify then at any time 
+
+Bind mounts the file or directory is referenced by its full path on the host machine. 
+
+volumes are the best way to persist data in Docker 
+volumes are managed by Docker and are solated from the core functionality of the host machine. 
+
+A given volume can be mounted into multiple containers simultaniously . 
+
+
+When no running container is useing a volume  the volume is still available to docker and s not removed automatcally. yo can remove unused volumes using docker volume prune . 
+
+When you mount a volume it may be name dor anonymus. 
+
+Anonymus volumes are not given an explicit name when they  are first mounteed into a container.
+
+Volumes also support the use of volume dreivers which allows you to store your data on remote hosts or cloud providers among other possblties. 
+
+docker commands help :   https://get.docker.com/
+
+installation steps for Amazon EC2 : https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html
+
+
+Basic :
+sudo docker version 
+sudo docker -v
+sudo docker --version
+sudo docker info
+sudo docker --help 
+sudo docker login
+sudo export PS1="\u$"   this is to shorten the command line name 
+
+Images :
+sudo docker images --help          to get help
+sudo docker images                    to view the images
+sudo docker images -a                to view the images
+sudo docker images -q                to get the images id
+sudo docker pull ubuntu          //   to pull images from Docker Hub site // sudo docker run ubuntu   is better command 
+	
+sudo docker pull image
+sudo docker images -f "dangling=false"  show images which are NOT associated with container
+sudo docker images -f "dangling=false" -q shows only imagesID  NOT associated with container
+sudo docker images -f "dangling=true"  show images associated with container
+ 
+
+ 
+sudo docker rmi --help
+sudo docker run image
+sudo docker rmi  image
+sudo docker rmi  -f image
+sudo docker rmi  imageIDxxx   to remove docker image
+
+
+Containers:
+
+sudo docker ps --help
+sudo docker run ubuntu
+sudo docker ps -a 	shows the list of container running from the image
+sudo docker run ubuntu    if image is not available locally , it will be downloaded and run
+sudo docker run -it ubuntu bash  start the shell 
+sudo docker start    containerID/Name      to start containers, you can not attach stopped container, start it first
+sudo docker attach containerID/Name      to attach  containers
+sudo docker kill containerID/Name
+sudo docker stop  containerID/Name       to stop containers
+sudo docker run -it ubuntu    go inside ubuntu
+sudo docker inspect ubuntu
+sudo docker rm containerID                     to remove the container
+sudo docker history imageName
+sudo docker pause MyUbuntuName
+sudo docker unpause MyUbuntuName
+sudo docker top MyUbuntuName     to see the top process of that containers
+sudo docker stats MyUbuntuName
+sudo docker container create           to create container in stopped state
+sudo exit     move back to our system 
+
+
+System :
+docker system df     to check disk usage of docker
+docker system prune --help   CAUTION : use with very carefully
+
+
+jenkns:
+sudo docker pull jenkins      	 //   to pull images from Docker Hub site 
+sudo docker run -p 8080:8080 -p 50000:50000 jenkins      	 //   to jenkins on docker container
+sudo docker run --name  myjenkins1 -v myvolume1:/var/jenkins_home -p 8080:8080 -p 50000:50000 jenkins      	 //   to jenkins on docker container
+sudo docker run --name myjenkins1 -p 8080:8080 -p 50000:50000  -v /users/ravinder/desktop/jenkins_home :/var/jenkins_home jenkins      	  
+sudo docker volume create 
+sudo docker volume ls              // to see the docker volumes list
+sudo docker volume inspect myjenkins1   // to get the mountpoint
+
+
+creating docker file :
+mkdir dockerfiles
+cd dockerfiles
+
+cat > dockerfile
+vi dockerfile    
+	FROM
+	RUN
+	CMD // enter the file contant in it
+https://github.com/wsargent/docker-cheat-sheet#dockerfile
+
+sudo docker build -t myimage1:1.0 .         // enter dot if you in the same directory where the docker file is present
+sudo docker run imageID
+
+
+Dockerfile : A text file ith instructions to build image automation of docker mage creation
+step1 : create a fle named Dockerfile
+step2 : Add instructions in Dockerfile
+step3 : Build dockerfile to create image
+step4 : Run image to create container 
+
+Docker Compose : tool  for defining and running multi container docker applications
+sudo docker-compose -v   // to check the version of dockercompose
+sudo docker-compose version
+sudo docker-compose --version
+
+sudo curl -L https://github.com/docker/compose/releases/download/1.25.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose 
+
+// to install composes
+$pip install -u docker-compose    // method 2  - to install composes 
+
+
+Create Services: 
+mkdir DockerComposeFile
+cd DockerComposeFile
+touch docker-compose.yml
+vi docker-compose.yml // edit the file and enter below details in the file 
+version: '3'
+services: 
+
+ web:
+     image: nginx
+     ports:
+     - 9090:80/tcp
+ database: 
+
+  image: redis  // copy the above code in file as it is with line space and spaces
+
+
+docker-compose config   // to check the validity of  below file 
+
+ 
+sudo docker-compose  up  // can start all services with a single command
+sudo docker-compose  up  -d // to run the yml file in detached mode
+
+localhost:9090   // to check if nginx is running or not 
+
+sudo docker-compose  --help // to get help
+sudo docker-compose -up -d -- scale database =4    // creates 4 db instances . can scale up selected services when required
+sudo docker-compose down   // to stop all services with a single command 
+
+
+docker Volumes: mechanism for persisting data generated by and used by docker containers
+sudo docker volume --help
+sudo docker volume create myvolume1  // create volume
+sudo docker volume ls  // list of volumes
+
+sudo docker volume  inspect myvolume1 
+sudo docker volume 
+
+
+pending practical : sharing the same volume by two containers
+Bind mount : to store data at physical location instead of volume
+sudo docker run --name  myjenkins3 -v  /users/ravinder/desktop/jenkins_home:/var/jenkins_home -p 9191:8080 -p 40000:50000 jenkins     
+
+
+Docker Swarm : is a group of machines that are running dockers and joined into a cluster
+
+sudo docker-machine --help   // help 
+sudo docker-machine create --driver virtualbox manager1     // to create manager1
+sudo docker-machine create --driver virtualbox worker1       // to create worker1
+sudo docker-machine create --driver virtualbox worker2       // to create worker2
+sudo docker-machine ls                                                          // to see the created manager and worker
+Sudo Brew cask install virtualbox    // to 
+sudo apt install linuxbrew-wrapper    // install brue if not already installed 
+sudo docker-machine ls  
+sudo docker-machine ip machine1   // shows ip address of machine
+
+sudo docker-machine ssh manager1     // connect to manager1 account
+sudo docker-machine ssh worker1       // connect to worker1   account
+sudo docker-machine ssh worker2       // connect to worker2    account
+
+sudo docker-machine ip manager1       // get the ip address of manager
+sudo docker swarm init -- advertise-addr  ipAddressOfManager1        // initilize docker swarm and assigns manager1  as manager role
+
+sudo docker node ls     // tells manager1 is now assigned as manager role. this command will not work on worker node
+
+sudo docker swarm    // shows all the commands
+sudo docker swarm join-token worker1     // for manager to join the worker1
+
+sudo docker swarm join-token manager1  // for worker1 to join the manager1
+
+sudo docker info      // get details from manager1 account
+
+   // create replica
+
+sudo docker service ls   // check the status 
+
+sudo docker service  ps web1  // 
+
+sudo docker service scale web1=4  // scale service up and down
+
+docker node inspect self
+
+sudo docker node update --availability drain worker1Error: No such node: worker1 // shut down node
+
+sudo docker swarm leave
+
+Pending items: practical of all above commands and docker swarm 
+
+

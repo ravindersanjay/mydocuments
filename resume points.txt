@@ -1,0 +1,20 @@
+
+Cucumber ???
+Grid
+GitHub
+Tomcat9
+Jenkins 2.4
+Maven 3.5
+Extent reports
+TestNG 6.8
+Eclips - Oxygen 7.4.3
+Selenium Standalone server - 3.11
+
+Selenium Automation Hybrid Framework based on Page object Model 
+State street Project architeture in terms of technologies
+what tools and technologoies are used in your project
+
+
+
+
+

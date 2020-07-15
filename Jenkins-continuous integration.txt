@@ -1,0 +1,56 @@
+Jenkins (Latest version 2.141)  is an open-source continuous integration software tool written in the Java programming language for testing and reporting on isolated changes in a larger code base in real time.
+
+Usage : you can setup a build and deploy process that includes repository checkout (svn, git and more), build process (ANT for example if used), SCP / SSH transfer and remote command and deploy it on your server (Tomcat for example). Jenkins also has lots of plugins that allows you to do variety of tasks.
+
+Installation steps :
+1. download jenkins.war file from https://updates.jenkins-ci.org/latest/jenkins.war
+2. run below command in jenkins folder to run Jenkins
+E:\Selenium\Jenkins>java -jar jenkins.war
+E:\Selenium\Jenkins>java -jar jenkins.war -- httpPort=9090    ( to start on different port)
+
+3. capture the password from command prompt 
+
+e6a7edab073644c8a815980b0b6c556e ( can be get only once from E:\Selenium\jenkins\secrets\ password file)
+
+ 
+4. go to localhost:8080
+
+
+username : admin
+password  : admin
+
+5. click install suggested plugins
+
+6. After installation create admin user
+7. click Jenkins >>Manage Jenkins >> Maven Plugins >> Available >> Search maven >> Select Maven related items >> click download and restart >> 
+
+After restart login to Jenkins. 
+Click Jenkins on top left and click new Items 
+-- > Check for Maven project. 
+Enter your project Name and Select Maven Project only  and click  OK 
+Enter description 
+Source code Management  : Select None if code is in local 
+in Build >> Root POM >> enter POM.xml file path taken from eclips
+Goals and options >> Clean Install
+
+Post Steps : Run Regardless of build result. 
+Click Apply and SAVE
+
+Jenkins >> Manage Jenkins >> Manage Plugin >> Search for testNG result Plugin >> download now and install after restart
+
+Jenkins >> click project name link  >> Click configure from left  >> Add Post build actions ( Select Publish testNG results
+
+
+
+RESTART: 
+java -jar jenkins.war restart
+
+all CLI commands : http://localhost:8080/cli/
+
+command to build job :
+java -jar jenkins-cli.jar -s http://localhost:8080/jenkins/ -webSocket build JOB [-c] [-f] [-p] [-r N] [-s] [-v] [-w]
+
+
+
+
+

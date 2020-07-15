@@ -1,0 +1,26 @@
+Download Maven from http://maven.apache.org/download.cgi and unzip it 
+Create MAVEN_HOME  environment variable path 
+
+eclips >> Help >> Eclips Marketplace >> Search Maven >> 
+
+;%MAVEN_HOME%;
+MVN -Version
+
+
+Add in pom.xml 
+download maven selenium dependency
+download maven testng dependency
+
+ <dependency>
+    <groupId></groupId>
+    <artifactId></artifactId>
+    <version></version>
+  </dependency>
+
+
+Making Maven Jar file :
+1. Right click on pom.xml in the maven Project --> Run as --> Maven Build...  >> Goal = Clean     >> target folder gets deleted
+2. Right click on pom.xml in the maven Project --> Run as --> Maven Build...  >> Goal = Compile >> target folder gets created
+
+maven issue ArtifactDescriptorException : 
+Solution: right click on project -> maven -> update-project -> force to update snapshot/release -> OK.

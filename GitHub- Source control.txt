@@ -1,0 +1,162 @@
+git = local repository
+github = central repository
+
+https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html
+https://www.atlassian.com/git/tutorials/setting-up-a-repository
+
+
+
++++++++++++  Initial Setup ++++++++++++++++++++++++
+C:\Users\WELCOME>git --version  		# check the version installed 
+C:\Users\WELCOME\PycharmProjects> create a Local_Folder and right click and select GIT BASH HERE
+$ git config --global user.name ravind			# set  global username		
+$ git config --global user.email ravindersanjay@gmail.com	# set  global email id 
+$ git config --global user.name				# retrive global username
+$ git config --global user.email  			# retrive global email 
+$ git init 	# initialized empty git repository in Local_Folder and creates .git hidden folder 
+$ ls -lart 	# shows hidden files
+$ git status	#message - untracked file names
+
+
++++++++++++  Basic Commands ++++++++++++++++++++
+$ git add test1.txt  	# add one file to staging area 
+$ git rm  --cached test1.txt	# remove file from staging area	
+$ git add -A   		# add all files at once to staging area
+$ git add *.*    	# add all files at once to staging area ( include *.* after add in command)
+$ git add .    		# add all files at once to staging area ( include . [DOT] after add in command)
+$ git commit -m "this is my message for commit all staged files to local repository"
+
+create a repository in github https://github.com/ravindersanjay/try.git
+$ git remote add origin https://github.com/ravindersanjay/try.git  	# connect local with github repo
+$ git push -u origin master	# uploades the files to github repo which are already commited in local repo
+
+$ git log 		#shows the list of activities done so far
+$ git log -p -3   	# shows last three commits
+
+
+
++++++++++++  Branch ++++++++++++++++++++++++ 
+$ git branch feature1   	#create new branch with name feature1, tip : run this when git status is up to date
+$ git branch -d feature1	#delete the local branch only if it has already been pushed and merged with the remote branch
+$ git branch -D feature1	#force the branch to be deleted, even if it hasn't been pushed or merged yet
+$ git checkout feature1 	# switch to branch 'feature1'
+$ git branch 	    		#check in which branch you are working 
+$ git push origin --delete <remote-branch-name>  # delete a remote branch  i.e github branch 
+$ git touch test2.txt 		# create a new file test2.txt
+$ git add. 
+$ git push -u origin feature1	# pushes the files to github to feature1 branch
+
+
+$ git checkout master 
+$ git merge feature1		# merge feature1 branch in master branch
+$ git push -u origin master
+$ git push origin master 	# to push the code from local to github			
+
+
+ +++++++++++  Tag ++++++++++++++++++++++++ 
+$ git tag <tagname>		#git tag v1.0
+$ git tag 			# shows all tags
+$ git tag -a <tagname> -m "tag for release ver 1.1" 		#detailed tag
+$ git push origin v1.0
+$ git push --tags		# to push all tags at once
+$ git tag -d v1.0
+$ git tag --delete v1.0
+$ git push origin -d v1.0	# to delete tags from remote
+$ git push origin --delete v1.0
+
+$ git tag -d v1.0 v1.1 	# delete multiple tags from local
+$ git push origin -d v1.0 v1.1 	# delete multiple tags from remote
+
+$ git checkout -b <branch name> <tagname>   	#git checkout -b ReleaseVer1 ver1.0
+$ git tag <tag name> < reference of commit > 	# git tag v1.2 5fcdbd03
+
+
+copy paste from here
++++++++++ revert the mistake +++++++++++++++++++++++++++  
+# accidently change the file in staging 
+$git status # changes not staged for commit modified : contact.html  
+
+# this command recovers the file to match the last commit
+$git checkout "contact.html"
+$git checkout -f  # to revert all modified files to unmodified 
+
+# reverting from Github
+$ git revert commitID		# commitID is hashcode
+$ git push 			# revert and push commands should be executed together 
+  
+
++++++++++ extra commands starts+++++++++++++++++++++++++++
+$ clear 
+$ ls
+$ git help
+
+$ code .  	# opens    the visual studio 
+
+
+
++++++++++ extra commands ends +++++++++++++++++++++++++++  	
+
+
+make change in file
+#git diff  		# shows difference between working directory and staging area
+#git diff  --staged   	# compares staging area with last commit
+
+
+$git commit -a -m 'skipped staging area and fixed"
+
+
+$git rm waste.html    # remove the file 
+$ git status   -s          #
+
+
+$ touch .gitignore  			#create gitignore file in your working git folder
+$ git rm --cached logs/inner.log      	# stops tracking the inner.log file
+
+
+connect local repository to central repository
+git remote add origin "https://github.com/ravindersanjay/SampleProject.git"
+git pull origin master 
+ 
+
+ 
+
+
+
+
+
+ 
+ 
+
+steps to merging first branch with master branch
+git checkout master
+git merge firstbranch
+
+rebasing steps( only master branch is maintained) 
+git checkout master
+git merge firstbranch
+
+to pull the code from local to github
+git pull origin master
+
+git clone https://github.com/ravindersanjay/SampleProject/
+
+# connect local and github
+$git remote add origin https://github.com/ravindersanjay/HelloWord.git
+$ git remote 	# message - origion
+$ git remote 	# message - origin https://github.com/ravindersanjay/HelloWord.git (fatch) and (push)
+
+reseting the changes   
+git checkout 8digitofhashcode filename.txt
+git log
+
+press q to quit
+
+ 
+
+
+postman 
+karati 
+rest assure 
+
+5000416@atossyntel
+5000416@1977

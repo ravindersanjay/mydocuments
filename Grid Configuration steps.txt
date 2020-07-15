@@ -1,0 +1,4 @@
+How to run the code in 
+1) local 
+2) other machine like cloud , VM , Desktop, Laptop , Mobile  
+3) Chrome , FF, IE 

@@ -1,0 +1,20 @@
+oex.Workbooks.Add()
+oex.ActiveWorkbook.SaveAs(spath)
+
+Check if Excel File already exists 
+Create excel file 
+Open Excel file 
+Add sheets 
+Delete sheets
+objExcel.sheets(worksheetname).Delete
+Delete Rows
+Rename sheets 
+Write into the sheet cell 
+Read from sheet cell 
+Copy Row  and Paste in another sheet
+
+Get Last row count 
+Get last column count 
+Format the font 
+Format the Cell 
+Change the column width 

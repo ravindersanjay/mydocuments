@@ -1,0 +1,14 @@
+my good interview questions
+
+1. example of constructor
+2. example of inheritance in framework 
+-TestBase class
+
+3. Where you have applied OOPS in Automation Framework
+4.
+5.
+6.
+7.
+8.
+9.
+10.

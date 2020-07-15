@@ -1,0 +1,85 @@
+TestNG is a testing framework for the Java programming language created by Cédric Beust and inspired by JUnit and NUnit. The design goal of TestNG is to cover a wider range of test categories: unit, functional, end-to-end, integration, etc., with more powerful and easy-to-use functionalities.
+
+
+
+Installation : Eclipse >>Help >> install new software >> work with "http://beust.com/eclipse/" >> 
+
+
+public class AnnotationsTest {
+
+    @BeforeSuite(alwaysRun = true)
+    public static void beforeSuite() {
+        System.out.println("@BeforeSuite");
+    }
+
+    @BeforeTest(alwaysRun = true)
+    public static void beforeTest() {
+        System.out.println("@BeforeTest");
+    }
+    @BeforeClass(alwaysRun = true)
+    public static void beforeClass() {
+        System.out.println("@BeforeClass");
+    }
+
+
+// pair starts 
+    @BeforeMethod(alwaysRun = true)
+    public static void beforeMethod() {
+        System.out.println("@BeforeMethod");
+    }
+
+@Test // test1
+    public void test2() {
+        System.out.println("Test2");
+    }
+
+@Test // test2
+    public void test2() {
+        System.out.println("Test2");
+    }
+ 
+@Test  // test3
+    public void test2() {
+        System.out.println("Test2");
+    }
+
+ @AfterMethod(alwaysRun = true)
+    public static void afterMethod() {
+        System.out.println("@AfterMethod");
+    }
+
+// pair ends
+
+  @AfterClass(alwaysRun = true)
+    public static void afterClass() {
+        System.out.println("@AfterClass");
+    }
+
+  @AfterTest(alwaysRun = true)
+    public static void afterTest() {
+        System.out.println("@AfterTest");
+    }
+
+    @AfterSuite(alwaysRun = true)
+    public static void afterSuite() {
+        System.out.println("@AfterSuite");
+    }
+
+  
+
+  //  priority, 
+//	groups = "user registration", 
+//	dependsOnMethod , 
+//	invocationCount, 
+//	invocationTimeOut
+//	expectedExceptions
+//  alwaysRun = true
+//  (dataProvider ="getTestData")
+	@Test(priority =1, groups="user registration", dependsOnMethods="googleTitleTest" , invocationCount =5, invocationTimeOut =2000, expectedExceptions=NumberFormatException.class)
+
+   
+
+
+
+    
+}

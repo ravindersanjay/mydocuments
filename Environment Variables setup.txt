@@ -1,0 +1,30 @@
+Maven Environment Setup : 
+JAVA_HOME =C:\Program Files\Java\jdk-10.0.2;
+M2_HOME   =E:\Selenium\apache-maven-3.5.2-bin;
+MAVEN_HOME=E:\Selenium\apache-maven-3.5.2-bin;
+PATH	  =%M2_HOME%\bin;%MAVEN_HOME%\bin;E:\Selenium\apache-maven-3.5.2-bin\bin;
+
+Verification : 
+c:\mvn –version
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Tomcat Environment Variable Setup : 
+CATALINA_HOME = E:\Selenium\Tomcat9;
+JAVA_HOME     = C:\Program Files\Java\jdk-10.0.2;
+JRE_HOME      = C:\Program Files\Java\jre-10.0.2   ( without semicolumn)
+CLASSPATH     = E:\Selenium\Tomcat9\lib;
+PATH	      =%PATH%; %JAVA_HOME%\bin;%CATALINA_HOME%\bin;%CLASSPATH%\servlet-api.jar;
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+jenkins Environment Variable Setup :
+
+
+
+
+
+test tomcat is setup correctly : 
+C:\javap javax.servlet.ServletException
+c:\javap javax.servlet.http.HttpServletRequest

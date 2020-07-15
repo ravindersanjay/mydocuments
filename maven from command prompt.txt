@@ -1,0 +1,13 @@
+go to pom.xml and src folder and shift right click and Open command window here 
+mvn clean 
+mvn compile
+mvn test-compile
+mvn test
+mvn install 
+
+
+
+
+maven-versions-plugin : plugin would simply check for updates and inform me
+
+mvn versions:display-dependency-updates; this generates a report of which dependencies can be upgraded, but lets you modify the POMs yourself. 

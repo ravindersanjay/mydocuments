@@ -1,0 +1,275 @@
+1) Refresh  browser 
+driver.navigate().refresh();
+
+
+2) How to disable Chrome save your password
+
+// Create object of HashMap Class
+Map<String, Object> prefs = new HashMap<String, Object>(); 
+           
+// Set the notification setting it will override the default setting
+prefs.put("profile.default_content_setting_values.notifications", 2);
+
+// save password disable
+prefs.put("credentials_enable_service", false);
+prefs.put("profile.password_manager_enabled", false);
+
+// Create object of ChromeOption class
+ChromeOptions options = new ChromeOptions();
+
+// Set the experimental option
+options.setExperimentalOption("prefs", prefs);
+
+// pass the options object in Chrome driver
+WebDriver driver = new ChromeDriver(options); 
+driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+driver.manage().window().maximize();
+
+
+3)a) Get element list of given xpath
+
+List <WebElement> oElement =driver.findElements(By.xpath(".//*[@id='password']"));
+
+for ( int i=0; i<oElement.size(); i++) 
+{
+System.out.println(oElement.get(i).getTagName());
+System.out.println("done");
+}
+
+
+
+3b)
+driver.get("http://www.infibeam.com/");
+
+driver.findElement(By.linkText("LOGIN / REGISTER")).click();
+
+driver.findElement(By.xpath(".//*[@id='new-account-btn']")).click();
+
+List <WebElement> e =driver.findElements(By.xpath(".//*[@id='password']"));
+
+int i = e.size();
+
+System.out.println(i);
+
+e.get(1).sendKeys("gcreddy1");
+
+
+4)  
+
+
+
+5)Iframe switch
+
+if (driver.findElements(By.className("iframe-loader")).size() > 0) {
+// Enter SKU ID in search test box and press enter
+driver.switchTo().frame(driver.findElement(By.className("iframe-loader")));
+
+6) Back to main Root frame 
+webDriver.SwitchTo().DefaultContent();
+
+7)// get the timestamp
+String timeStamp = new SimpleDateFormat("dd.MM.yyyy_HH:mm:ss").format(new Date());
+
+
+8)// learn ArrayList<String>
+
+ import java.util.*;
+class TestCollection1
+{
+ public static void main(String args[])
+ {
+  ArrayList<String> al=new ArrayList<String>();
+  al.add("Ravi");
+  al.add("Vijay");
+  al.add("Ravi");
+  al.add("Ajay");
+  al.add("kumar");
+  Iterator itr=al.iterator();
+  while(itr.hasNext())
+    {
+    System.out.println(itr.next());
+    }
+ }
+}
+
+
+
+9) //Create webdriver 
+System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver_win32\\chromedriver.exe");          
+WebDriver driver = new ChromeDriver();          
+String url = "http://newtours.demoaut.com" ;          
+driver.get(url);          
+driver.manage().window().maximize();
+
+10) //Read Excel file               
+File src = new File("C:\\Selenium\\Datasheet.xlsx");          
+FileInputStream fis = new FileInputStream(src);          
+XSSFWorkbook wb = new XSSFWorkbook(fis);          
+XSSFSheet sh = wb.getSheetAt(0);          
+int TotalRowCount = sh.getLastRowNum();
+
+11)//Read Excel Cell Value          
+String cellValueUsername = sh.getRow(1).getCell(0).getStringCellValue();          
+System.out.println(cellValueUsername);
+
+12) //Write Excel File           
+FileOutputStream Fout = new FileOutputStream(new File( "C:\\Selenium\\Datasheet.xlsx"));  
+wb.write(Fout);          
+Fout.close();
+
+13) //Press enter 
+driver.findElement(By.id("Value")).sendKeys(Keys.ENTER);  // or use RETURN
+
+14) //Compare String  
+WebElement strvalue = driver.findElement(By.xpath("  "));
+        String expected = "Text to compare";
+        String actual = strvalue.getText();
+        System.out.println(actual);
+
+    if(expected.equals(actual)){
+        System.out.println("Pass");
+    }
+        else {
+            System.out.println("Fail");
+        }
+
+
+15) // code to save image on hard disk here
+
+
+try {
+		
+		// get full size image URL
+		String BigImageURL = driver.findElement(By.xpath("//div[@id='irc_cc']/div[2]/div[1]/div[2]/div[2]/a/img")).getAttribute("src");
+		System.out.println(BigImageURL);
+
+
+		// Save the full image on hard disk
+		URL imageURL = new URL(BigImageURL);
+		BufferedImage saveImage = ImageIO.read(imageURL);
+		//file name with time stamp
+		ImageIO.write(saveImage, "jpg", new File(SearchKeyword +"_" +timeStamp+ "_" + ".jpg"));
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+		// close the full Image window
+		driver.switchTo().window(tabs.get(1)).close();
+
+		// switch back to main screen 
+		driver.switchTo().window(tabs.get(0)); 
+
+		}
+
+
+
+
+16)// get the timestamp
+							
+String timeStamp = new SimpleDateFormat("dd.MM.yyyy_HH.mm.ss").format(new Date());
+
+
+17) //Run.bat code to run from the project folder from any drive
+cd %~dp0
+echo " Starting DownloadGoogleImage
+java -jar DownloadGoogleImage.jar
+
+
+18) how to align the code 
+select the code and press control+I 
+   
+
+19) //convert String to integer 
+int myInteger = Integer.parseInt(myString);
+
+
+20) syso + ctrl +space and press enter  for System.out.println();
+
+
+
+
+
+
+
+3) framework
+
+4)POM : page object Model
+
+
+5)findElements(By.cssSelector
+6)
+7)
+
+
+Xpath tips : 
+a)click F12 and right click on the code and copy the xpath
+b)
+
+
+below material is uploaded
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+TUTORIALS :
+https://www.tutorialspoint.com/apache_poi/index.htm
+https://www.tutorialspoint.com/xpath/index.htm
+create exe file of selenium project 
+http://doc.alertsite.com/synthetic/monitors/selenium/create-runnable-jar-from-selenium-script-using-eclipse.htm >> Right click the Preoject >> Export >> Java >> Runnable JAR file >> Finish 
+
+software
+https://www.eclipse.org/downloads/ 
+http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+Google Chrome is also needed 
+
+
+
+JAR
+https://selenium-release.storage.googleapis.com/3.4/selenium-server-standalone-3.4.0.jar
+http://selenium-release.storage.googleapis.com/3.4/IEDriverServer_Win32_3.4.0.zip
+http://selenium-release.storage.googleapis.com/3.4/selenium-java-3.4.0.zip
+http://chromedriver.storage.googleapis.com/2.29/chromedriver_win32.zip
+http://mirror.fibergrid.in/apache/poi/release/bin/poi-bin-3.16-20170419.zip
+
+Maven:
+eclips --> Help --> install new software -->  add below link 
+http://download.eclipse.org/technology/m2e/releases
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Xpath tips:
+
+Syntex    Xpath=//tagname[@attribute='value']
+install chroPath in chrome  or firepath in firefox to get xpath easily 
+https://www.guru99.com/xpath-selenium.html
+
+driver.findElement(By.Xpath=//input[@type='submit' AND @name='btnLogin']
+driver.findElement(By.Xpath("//input[@type='text']
+driver.findElement(By.xpath(".//input[@placeholder='Search by Product Name, SKU or SUPC']")).sendKeys(QUANTITY);
+driver.findElement(By.Xpath=//input[@value='RESET']
+driver.findElement(By.xpath("//input[@id='inventory']")).clear();
+driver.findElement(By.xpath("//*[contains,'Skip']"))
+driver.findElement(By.xpath("//div[@class='modal-table-cell']//span[text()='Skip']")).size()
+driver.findElement(By.xpath(".//img[@src='/static/sfui/assets/images/snapdeal_logo_tagline.png']")).click();
+driver.findElement(By.Xpath=//*[@class='barone']
+driver.findElement(By.xpath("//*[@class ='hide-on-mobile']//*[text()='Khakee1']")).click()
+driver.findElement(By.linkText("Logout")).click();				
+driver.findElement(By.Xpath=//label[@id='message23']
+driver.findElement(By.Xpath=//a[@href='http://demo.guru99.com/']
+driver.findElement(By.Xpath=//img[@src='//cdn.guru99.com/images/home/java.png']
+Xpath=//*[contains(text(),'here')]
+Xpath=//*[contains(@href,'guru99.com')]	
+
+Xpath=//*[contains(text(),'here')]
+Xpath=//*[contains(@href,'guru99.com')]	
+
+@FindBy(xpath="//input[@type='submit']")
+WebElement loginBtn;
+	
+@FindBy(xpath="//button[contains(text(),'Sign Up')]")
+WebElement signUpBtn;
+	
+@FindBy(xpath="//img[contains(@class,'img-responsive')]")
+WebElement LogoImg;
+
+

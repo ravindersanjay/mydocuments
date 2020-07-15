@@ -1,0 +1,77 @@
+	driver.get(baseUrl + "/mantisbt-1.2.18/login_page.php");
+	driver.manage().window().maximize();
+	driver.manage().timeout().implicitlyWait(10, TimeUnit.SECONDS);
+    driver.findElement(By.name("username")).clear();
+    driver.findElement(By.name("username")).sendKeys("administrator");
+    driver.findElement(By.cssSelector("input.button")).click();
+    driver.findElement(By.linkText("Report Issue")).click();
+    new Select(driver.findElement(By.name("severity"))).selectByVisibleText("major"); 
+    driver.findElement(By.id("os")).clear();
+    driver.findElement(By.id("os")).sendKeys("windows");
+    new Select(driver.findElement(By.name("handler_id"))).selectByVisibleText("administrator");
+    driver.findElement(By.cssSelector("input.button")).click();
+    driver.findElement(By.linkText("View Issues")).click();
+    driver.findElement(By.linkText("Logout")).click();
+	driver.quit();
+		
+	webElement cate =driver.findElement(By.name("
+	Select selectcat = new select (cate);
+	Select.selectByIndex
+	Select.selectByVisibleText("All Projects")
+	Select.getFirstSelectedOption().getText();
+	Select cat=new 
+	
+  }
+thread.sleep (2000);
+try
+catch
+driver.manage().window().maximixe ()
+
+Q: how to Change font in eclips : 
+A: eclips --> windows > preference --> General --> Color and font --> Basic --> Text font
+
+Q: How to execute code line by line 
+A: 
+
+Q: How to clear the log before running 
+A: on console right click and clear 
+
+Q: how to insert breakpoint
+A:
+
+
+list.<webelement> link =driver.findelement (By.tagName("a")
+link .size();
+System.out.printLn(link.size);
+string linktest;
+for (webelement lin : link) {
+linktext = lin.getText();
+system.out.println(linktext);
+
+if ) link,contain ("lost")
+driver.nevigate().back();
+
+int i=0;
+for ( int j =0; j < link size () ; J++{
+link.get(j).getText();
+link.get(1).click();
+for (webElement wblnk: lstemen{
+weblnk.click()
+
+for ( int i=0; i < lstsize(); i++ {
+
+if (lst Elem.get(i).getText().tostring().contains("signup");
+lstEle.get(i).click();
+
+
+syntex 
+//tagname/[@attr="value"]
+example
+//input[@name='password']
+
+//input[@value='Login']
+}
+system.out.println(wblnk.getText().toString());
+
+
+//input[@name='checkbox']

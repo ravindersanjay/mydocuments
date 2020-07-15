@@ -1,0 +1,2 @@
+1. difference between API ( jar files acessed locally)  and webservice ( API accessed over the internet are webservices)
+2. difference between rest and soap

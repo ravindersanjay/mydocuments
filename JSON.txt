@@ -1,0 +1,4 @@
+Java Script Objecte Notation
+
+object ( POJO - Plain old Java Object ) to JSON conversion is called Marshlling 
+JSON to object conversion is called unMarshlling  

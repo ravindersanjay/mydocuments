@@ -1,0 +1,43 @@
+1. DOM ( HTML DOM, XML DOM, CORE DOM )
+2. What is HTML DOM model  API
+
+3. draw your project archictute  diagram in terms of technology
+4. different tools and technology we are using . what servers are used . how 5. integration servers are working . 
+6. How integration APIs are working ( Json is answer)
+7. Java Robot class to handle Save Image dialog
+8. how to execute test cases faster https://seleniumjava.com/2015/12/12/how-to-make-selenium-webdriver-scripts-faster/
+
+API testing 
+Assert
+TestNG
+Grid
+Desired capabilities
+Directly Testing lastpage
+event firing driver
+CSS selector
+Extend report --> custom sysout msg
+Selenium architecture
+Design pattern
+Reliable OR in Selenium 
+WebEvent Listionar
+Robot Class
+jinkins
+
+OOPS
+Encapsulaton
+polymorphism 
+interface use 
+abstract class
+generic funciton
+raper
+Hash Map
+Hash Table
+
+
+
+
+
+
+
+
+
